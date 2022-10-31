@@ -34,30 +34,31 @@ var createScene = function () {
     //color background black
     scene.clearColor = new BABYLON.Color3.FromHexString('#000');
 
+    //"Heavy misfortunes have befallen us, but let us only cling closer to what remains, and transfer our love for those whom we have lost to those who yet live."
+    //Page 276
 
-    //create sphere w params (x, y, z, diameter)
-    var s1 = createSphere(-1, 1, -1, 2);
 
-    //wrap sphere in material from URL file
-    s1.material = fileMat('https://images.pexels.com/photos/53594/blue-clouds-day-fluffy-53594.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', scene);
+    //create spheres
+    var death = createSphere(-2, 1, 0 , 2);
+    var life = createSphere(2, 1, 0, 2);
+    var darkness = createSphere(0, -3, 0, 2);
+
     
-    //create sphere
-    var s2 = createSphere(2, 2, 0.5, 2);
-
-    //wrap sphere in material from local file
-    s2.material = fileMat('moon.jpg', scene);
+    death.material = fileMat('/babylon-textures/imgs/Fire_Sky.jpg', scene);
+    life.material = fileMat('/babylon-textures/imgs/golden_sky.jpg', scene);
+    darkness.material = fileMat('/babylon-textures/imgs/void.jpg', scene);
     
     //create box with params x, y, z, width, height, ddepth
-    var b1 = createBox(2, -2, 2, 1, 1, 1);
+    // var b1 = createBox(2, -2, 2, 1, 1, 1);
 
-    //wrap box in material colored with hex code
-    b1.material = hexMat('#ff0000');
-    b1.rotation.z += Math.PI/4;
+    // //wrap box in material colored with hex code
+    // b1.material = hexMat('#ff0000');
+    // b1.rotation.z += Math.PI/4;
 
-    var b2 = createBox(0, -2, -1.5, 2, 2, 2);
+    // var b2 = createBox(0, -2, -1.5, 2, 2, 2);
 
-    //wrap box in material from local file
-    b2.material = fileMat('why.png');
+    // //wrap box in material from local file
+    // b2.material = fileMat('why.png');
 
     return scene;
 };
